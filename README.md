@@ -45,7 +45,7 @@
 `docker ps -a | awk '{ print $1,$2 }' | grep <IMAGE_NAME> | awk '{print $1 }' | xargs -I {} docker rm {}` Removed All Containers for an Image
 
 `docker container run -p <HOST_PORT>:<CONTAINER_PORT> --name <CONTAINER_NAME> <IMAGE_NAME> -it <IMAGE_NAME> <COMMAND>`
-`docker container run --publish <HOST_PORT>:<CONTAINER_PORT> --name <CONTAINER_NAME> <IMAGE_NAME> --detach <COMMAND>`
+`docker container run --publ-t ish <HOST_PORT>:<CONTAINER_PORT> --name <CONTAINER_NAME> <IMAGE_NAME> --detach <COMMAND>`
     - `--name` Assign a name to the container
     - `--publish` Publish a container’s port(s) to the host <HOST_PORT>:<CONTAINER_PORT>
     - `--detach` Run container in background and print container ID

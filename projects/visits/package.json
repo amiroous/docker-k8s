@@ -1,0 +1,15 @@
+{
+    "name": "visits",
+    "version": "1.0.0",
+    "description": "A Visit Counter Docker Container",
+    "main": "./index.js",
+    "scripts": {
+        "start": "node ./index.js"
+    },
+    "author": "AM",
+    "license": "ISC",
+    "dependencies": {
+        "express": "*",
+        "redis": "2.8.0"
+    }
+}
