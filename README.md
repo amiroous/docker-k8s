@@ -19,7 +19,7 @@
 `docker stop <CONTAINER_ID>`
 `docker kill <CONTAINER_ID>`
 `docker run <IMAGE_NAME> <COMMAND>`
-
+`docker run -d <IMAGE_NAME>` Run a Container from an Image with Detach (Run in Background) Mode
 `docker run -it <IMAGE_NAME> <COMMAND>`
 `docker exec -it <CONTAINER_ID> <COMMAND>`
 
@@ -44,8 +44,10 @@
 `docker rm $(docker ps -aq)` Removes All Containers
 `docker ps -a | awk '{ print $1,$2 }' | grep <IMAGE_NAME> | awk '{print $1 }' | xargs -I {} docker rm {}` Removed All Containers for an Image
 
-`docker container run -p <HOST_PORT>:<CONTAINER_PORT> --name <CONTAINER_NAME> <IMAGE_NAME> -it <IMAGE_NAME> <COMMAND>`
-`docker container run --publ-t ish <HOST_PORT>:<CONTAINER_PORT> --name <CONTAINER_NAME> <IMAGE_NAME> --detach <COMMAND>`
+`docker container run -p <HOST_PORT>:<CONTAINER_PORT> --name <CONTAINER_NAME> <IMAGE_ID>`
+`docker container run -p <HOST_PORT>:<CONTAINER_PORT> -v <HOST_FOLDER>:<CONTAINER_FOLDER> <IMAGE_ID>`
+`docker container run -p <HOST_PORT>:<CONTAINER_PORT> --name <CONTAINER_NAME> -it <IMAGE_ID> <COMMAND>`
+`docker container run --publ-t ish <HOST_PORT>:<CONTAINER_PORT> --name <CONTAINER_NAME> <IMAGE_ID> --detach <COMMAND>`
     - `--name` Assign a name to the container
     - `--publish` Publish a container’s port(s) to the host <HOST_PORT>:<CONTAINER_PORT>
     - `--detach` Run container in background and print container ID
@@ -77,6 +79,7 @@
 `docker volume create <VOLUME_NAME>`
 `docker volume inspect <VOLUME_NAME>`
 `docker volume rm <VOLUME_NAME>`
+`docker rm $(docker volume -q)`
 
 ### 4. Network
 `docker network ls`
@@ -92,12 +95,51 @@
 
 
 ## Dockerfile
-
 - Use an Existing Docker Image as a Base
 - Download and Install Dependencies
 - Command to be Run, when a Container Instantiated from this Image Starts
 
-- `docker build .`, `docker build <DOCKERFILE>`
+`docker build .`
+`docker image build -t <YOUR_DOCKER_ID/REPO_NAME/VERSION> .`
+`docker build -f <DOCKERFILE_NAME> .`
 
 
-docker rm $(docker volume -q)
+## Docker Compose
+`docker-compose ps` Lists containers in the context of docker-compose file
+`docker-compose up` Run Containers
+`docker-compose up -d` Run Containers in Detach Mode (Run in Background)
+`docker-compose up --build` Build Images and Run Containers
+`docker-compose down` Stop and Remove Containers
+
+
+## Production Workflow
+1. Development
+2. Testing
+3. Deployment
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

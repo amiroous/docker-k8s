@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+
+  redis-server:
+    image: redis
+
+  node-app:
+    restart: always
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image:
+      amiroous/node-app:latest
+    ports:
+      - "9091:8081"
