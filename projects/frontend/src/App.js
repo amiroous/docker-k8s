@@ -8,7 +8,7 @@ function App() {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          Docker React
+          Docker Kubernetes React
         </p>
       </header>
     </div>
