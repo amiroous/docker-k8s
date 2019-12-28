@@ -119,8 +119,25 @@
 3. Deployment   
 
 
+## Tools
 
+1. Development Tools
+- Docker (Dockerfile)
+- Docker Compose (docker-compose.yml)
+- Docker Hub [?](https://hub.docker.com/)
 
+2. Version Control System Repository
+- Github [?](https://github.com/)
+
+3. Continuous Integration Services
+- Travis CI [?](https://travis-ci.com/)
+- Jenkins CI [?](https://jenkins.io/)
+
+4. Cloud Services
+- Amazon Web Services (AWS) [?](https://aws.amazon.com/)
+- AWS Elastic Beanstalk (Orchestration Service)
+- AWS RDS (Relational Database Service)
+- AWS ElastiCache (In-Memory Data Store)
 
 
 
