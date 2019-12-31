@@ -15,13 +15,13 @@
 `docker logout` 
 
 `docker create <IMAGE_NAME> <COMMAND>`  
-`docker start <CONTAINER_ID>`, `docker start -a <CONTAINER_ID>` 
+`docker start <CONTAINER_ID>`, `docker start -a <CONTAINER_ID>`  
 `docker stop <CONTAINER_ID>`    
 `docker kill <CONTAINER_ID>`    
-`docker run <IMAGE_NAME> <COMMAND>` 
-`docker run -d <IMAGE_NAME>` Run a Container from an Image with Detach (Run in Background) Mode 
-`docker run -it <IMAGE_NAME> <COMMAND>` 
-`docker exec -it <CONTAINER_ID> <COMMAND>`  
+`docker run <IMAGE_NAME> <COMMAND>`     
+`docker run -d <IMAGE_NAME>` Run a Container from an Image with Detach (Run in Background) Mode     
+`docker run -it <IMAGE_NAME> <COMMAND>`     
+`docker exec -it <CONTAINER_ID> <COMMAND>`      
 
 `docker ps`, `docker ps --all`  
 `docker logs <CONTAINER_ID>`    
@@ -43,12 +43,12 @@
 `docker container rm <CONTAINER_ID>`    
 `docker stop $(docker ps -aq)` Stops All Containers 
 `docker rm $(docker ps -aq)` Removes All Containers 
-`docker ps -a | awk '{ print $1,$2 }' | grep <IMAGE_NAME> | awk '{print $1 }' | xargs -I {} docker rm {}` Removed All Containers for an Image   
+`docker ps -a | awk '{ print $1,$2 }' | grep <IMAGE_NAME> | awk '{print $1 }' | xargs -I {} docker rm {}` Removed All Containers for an Image    
 
 `docker container run -p <HOST_PORT>:<CONTAINER_PORT> --name <CONTAINER_NAME> <IMAGE_ID>`   
 `docker container run -p <HOST_PORT>:<CONTAINER_PORT> -v <HOST_FOLDER>:<CONTAINER_FOLDER> <IMAGE_ID>`   
 `docker container run -p <HOST_PORT>:<CONTAINER_PORT> --name <CONTAINER_NAME> -it <IMAGE_ID> <COMMAND>` 
-`docker container run --publ-t ish <HOST_PORT>:<CONTAINER_PORT> --name <CONTAINER_NAME> <IMAGE_ID> --detach <COMMAND>`  
+`docker container run --publ-t ish <HOST_PORT>:<CONTAINER_PORT> --name <CONTAINER_NAME> <IMAGE_ID> --detach <COMMAND>`      
     - `--name` Assign a name to the container   
     - `--publish` Publish a container’s port(s) to the host <HOST_PORT>:<CONTAINER_PORT>    
     - `--detach` Run container in background and print container ID 
@@ -109,9 +109,9 @@
 ## Docker Compose
 `docker-compose ps` Lists containers in the context of docker-compose file  
 `docker-compose up` Run Containers  
-`docker-compose up -d` Run Containers in Detach Mode (Run in Background)    
-`docker-compose up --build` Build Images and Run Containers
-`docker-compose build <SERVICE_NAME>` Build Single Image 
+`docker-compose up -d` Run Containers in Detach Mode (Run in Background)        
+`docker-compose up --build` Build Images and Run Containers     
+`docker-compose build <SERVICE_NAME>` Build Single Image    
 `docker-compose down` Stop and Remove Containers    
 
 
@@ -168,11 +168,11 @@ kubectl cluster-info
 `kubectl get services` Get the status of all running services    
 
 
-`kubectl describe pod <POD_NAME>`
-`kubectl get pods -o wide`
+`kubectl describe pod <POD_NAME>`   
+`kubectl get pods -o wide`  
 
-`kubectl set <PROPERTY_TO_CHANGE> <OBJECT_TYPE>/<OBJECT_NAME> <TARGET_CONTAINER_NAME> = <PROPERTY_NEW_VALUE>`
-`kubectl set image deployment/client-deployment client=amiroous/docker-k8s-fibonacci-client:v2.0`
+`kubectl set <PROPERTY_TO_CHANGE> <OBJECT_TYPE>/<OBJECT_NAME> <TARGET_CONTAINER_NAME> = <PROPERTY_NEW_VALUE>`   
+`kubectl set image deployment/client-deployment client=amiroous/docker-k8s-fibonacci-client:v2.0`   
 
 #### Change Code & Deploy Steps:
 1. Change the Code Base 
@@ -182,12 +182,11 @@ kubectl cluster-info
 
 
 
+### Configure Local Docker Client (CLI) for Kubernetes on VM
+> Configure Local Docker Client (CLI) to Talk to Docker Server Inside of Virtual Machine (Instead of Docker Server Locally)     
+> This only configures current open terminal window and is temporary (`minikube docker-env`)
 
-
-
-
-
-
+`eval $(minikube docker-env)`
 
 
 

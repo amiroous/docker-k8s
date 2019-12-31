@@ -1,0 +1,41 @@
+language: generic
+
+sudo: required
+
+services:
+  - docker
+
+before_install:
+  - docker build -t amiroous/docker-k8s-fibonacci-test -f ./client/Dockerfile.dev ./client
+
+script:
+  - docker run -e CI=true amiroous/docker-k8s-fibonacci-test npm test
+
+after_success:
+  # Create App Images
+  - docker build -t amiroous/docker-k8s-fibonacci-client ./client
+  - docker build -t amiroous/docker-k8s-fibonacci-nginx ./nginx
+  - docker build -t amiroous/docker-k8s-fibonacci-server ./server
+  - docker build -t amiroous/docker-k8s-fibonacci-worker ./worker
+
+  # Login to the docker cli
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+
+  # Push Created Images to Docker Hub
+  - docker push amiroous/docker-k8s-fibonacci-client
+  - docker push amiroous/docker-k8s-fibonacci-nginx
+  - docker push amiroous/docker-k8s-fibonacci-server
+  - docker push amiroous/docker-k8s-fibonacci-worker
+
+deploy:
+  edge: true
+  provider: elasticbeanstalk
+  region: "us-west-1"
+  app: "docker-k8s-fibonacci"
+  env: "DockerK8sFibonacci-env"
+  bucket_name: "elasticbeanstalk-us-west-1-627871014836" # AWS S3
+  bucket_path: "docker-k8s-fibonacci" # Same as App
+  on:
+    branch: master
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key: $AWS_SECRET_KEY
