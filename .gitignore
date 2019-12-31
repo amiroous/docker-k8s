@@ -1,11 +1,5 @@
 .idea/
 .gitignore
-Dockerfile
-Dockerfile.dev
-Makefile
 README.md
-docker-compose.yml
-package.json
 public/
-src/
 yarn.lock

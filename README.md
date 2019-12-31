@@ -178,6 +178,8 @@ kubectl cluster-info
 1. Change the Code Base 
 2. Re-Build Effected Images (Using Docker Build or Docker Compose or Make)
 3. Push Updated Images to Docker Hub
+4. Set the Kubernetes Config by Kubectl Set Command
+
 
 
 
