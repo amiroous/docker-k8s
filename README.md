@@ -27,6 +27,7 @@
 `docker logs <CONTAINER_ID>`    
 
 `docker container prune`    
+`docker system prune --volumes`     
 `docker image prune`    
 `docker volume prune`   
 `docker network prune`  
@@ -109,7 +110,8 @@
 `docker-compose ps` Lists containers in the context of docker-compose file  
 `docker-compose up` Run Containers  
 `docker-compose up -d` Run Containers in Detach Mode (Run in Background)    
-`docker-compose up --build` Build Images and Run Containers 
+`docker-compose up --build` Build Images and Run Containers
+`docker-compose build <SERVICE_NAME>` Build Single Image 
 `docker-compose down` Stop and Remove Containers    
 
 
@@ -124,31 +126,58 @@
 1. Development Tools
 - Docker (Dockerfile)
 - Docker Compose (docker-compose.yml)
-- Docker Hub [?](https://hub.docker.com/)
+- Docker Hub [#](https://hub.docker.com/)
 
 2. Version Control System Repository
-- Github [?](https://github.com/)
+- Github [#](https://github.com/)
 
 3. Continuous Integration Services
-- Travis CI [?](https://travis-ci.com/)
-- Jenkins CI [?](https://jenkins.io/)
+- Travis CI [#](https://travis-ci.com/)
+- Jenkins CI [#](https://jenkins.io/)
 
 4. Cloud Services
-- Amazon Web Services (AWS) [?](https://aws.amazon.com/)
+- Amazon Web Services (AWS) [#](https://aws.amazon.com/)
 - AWS Elastic Beanstalk (Orchestration Service)
 - AWS RDS (Relational Database Service)
 - AWS ElastiCache (In-Memory Data Store)
+- Amazon EKS (Elastic Kubernetes Service)
 
 
+## Kubernetes [#](https://kubernetes.io/)
+![Kubernetes 1](./screenshots/25.2.png)
+![Kubernetes 2](./screenshots/25.3.png)
+
+#### Tools
+- Kubectl (Kubernetes CLI)
+- Virtual Box
+- Minikube
+
+#### Useful Commands
+```
+minikube ip
+minikube start
+minikube start --vm-driver=virtualbox
+minikube status
+kubectl cluster-info
+```
+
+`kubectl apply -f <CONFIG_FILE>` Feed a config file to Kubectl  
+`kubectl delete -f <CONFIG_FILE>` Delete an existing pod   
+`kubectl get <OBJECT_TYPE>` Get the status of all running object types   
+`kubectl get pods` Get the status of all running pods   
+`kubectl get services` Get the status of all running services    
 
 
+`kubectl describe pod <POD_NAME>`
+`kubectl get pods -o wide`
 
+`kubectl set <PROPERTY_TO_CHANGE> <OBJECT_TYPE>/<OBJECT_NAME> <TARGET_CONTAINER_NAME> = <PROPERTY_NEW_VALUE>`
+`kubectl set image deployment/client-deployment client=amiroous/docker-k8s-fibonacci-client:v2.0`
 
-
-
-
-
-
+#### Change Code & Deploy Steps:
+1. Change the Code Base 
+2. Re-Build Effected Images (Using Docker Build or Docker Compose or Make)
+3. Push Updated Images to Docker Hub
 
 
 
