@@ -50,7 +50,7 @@ class Fib extends Component {
         e.preventDefault();
 
         await axios.post('/api/values', {
-           index:  this.state.index
+            index:  this.state.index
         });
 
         this.setState({index: ''});
