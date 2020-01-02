@@ -163,16 +163,21 @@ kubectl cluster-info
 
 `kubectl apply -f <CONFIG_FILE>` Feed a config file to Kubectl  
 `kubectl delete -f <CONFIG_FILE>` Delete an existing pod   
+`kubectl delete -f <CONFIGS_DIR>` Delete all resources based on all config in a directory       
 `kubectl get <OBJECT_TYPE>` Get the status of all running object types   
 `kubectl get pods` Get the status of all running pods   
-`kubectl get services` Get the status of all running services    
-
+`kubectl get services` Get the status of all running services
+`kubectl get deployments` Get the status of all running deployments    
+`kubectl get pv` Get all persistent volumes 
+`kubectl get pvc` Get all persistent volume claims                
 
 `kubectl describe pod <POD_NAME>`   
 `kubectl get pods -o wide`  
 
 `kubectl set <PROPERTY_TO_CHANGE> <OBJECT_TYPE>/<OBJECT_NAME> <TARGET_CONTAINER_NAME> = <PROPERTY_NEW_VALUE>`   
 `kubectl set image deployment/client-deployment client=amiroous/docker-k8s-fibonacci-client:v2.0`   
+`kubectl get storageclass`      
+`kubectl describe storageclass`
 
 #### Change Code & Deploy Steps:
 1. Change the Code Base 
