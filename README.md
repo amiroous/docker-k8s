@@ -169,7 +169,8 @@ kubectl cluster-info
 `kubectl get services` Get the status of all running services
 `kubectl get deployments` Get the status of all running deployments    
 `kubectl get pv` Get all persistent volumes 
-`kubectl get pvc` Get all persistent volume claims                
+`kubectl get pvc` Get all persistent volume claims   
+`kubectl get secrets` Get all secrets                
 
 `kubectl describe pod <POD_NAME>`   
 `kubectl get pods -o wide`  
@@ -178,6 +179,9 @@ kubectl cluster-info
 `kubectl set image deployment/client-deployment client=amiroous/docker-k8s-fibonacci-client:v2.0`   
 `kubectl get storageclass`      
 `kubectl describe storageclass`
+
+`kubectl create secret <SECRET_TYPE> <SECRET_NAME> --from-literal key=value`
+`kubectl describe secrets/<SECRET_NAME>`
 
 #### Change Code & Deploy Steps:
 1. Change the Code Base 
