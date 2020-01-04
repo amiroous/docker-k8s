@@ -158,6 +158,7 @@ minikube ip
 minikube start
 minikube start --vm-driver=virtualbox
 minikube status
+minikube dashboard
 kubectl cluster-info
 ```
 
@@ -198,5 +199,7 @@ kubectl cluster-info
 `eval $(minikube docker-env)`
 
 
+### Kubernetes Ingress Nginx Controller
+[1](https://kubernetes.github.io/ingress-nginx/)
 
 
