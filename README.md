@@ -185,10 +185,10 @@ kubectl cluster-info
 `kubectl describe secrets/<SECRET_NAME>`
 
 #### Change Code & Deploy Steps:
-1. Change the Code Base 
-2. Re-Build Effected Images (Using Docker Build or Docker Compose or Make)
-3. Push Updated Images to Docker Hub
-4. Set the Kubernetes Config by Kubectl Set Command
+1. Change the Code Base         
+2. Re-Build Effected Images (Using Docker Build or Docker Compose or Make) `docker build -t amiroous/docker-k8s-fibonacci-client ./client`      
+3. Push Updated Images to Docker Hub        
+4. Set the Kubernetes Config by Kubectl Set Command     
 
 
 
