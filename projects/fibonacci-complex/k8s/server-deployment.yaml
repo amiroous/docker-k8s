@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: server
-          image: amiroous/docker-k8s-fibonacci-server
+          image: amiroous/docker-k8s-fibonacci-complex-server
           ports:
             - containerPort: 5000
           env:
@@ -34,5 +34,5 @@ spec:
             - name: PGPASSWORD
               valueFrom:
                 secretKeyRef:
-                  name: app-secret
-                  key: pgpassword
+                  name: pgpassword
+                  key: PGPASSWORD

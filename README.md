@@ -184,6 +184,9 @@ kubectl cluster-info
 `kubectl create secret <SECRET_TYPE> <SECRET_NAME> --from-literal key=value`
 `kubectl describe secrets/<SECRET_NAME>`
 
+`git rev-parse HEAD` Get current Git SHA
+
+
 #### Change Code & Deploy Steps:
 1. Change the Code Base         
 2. Re-Build Effected Images (Using Docker Build or Docker Compose or Make) `docker build -t amiroous/docker-k8s-fibonacci-client ./client`      
@@ -202,4 +205,9 @@ kubectl cluster-info
 ### Kubernetes Ingress Nginx Controller
 [1](https://kubernetes.github.io/ingress-nginx/)
 
+### Helm [#](https://helm.sh/)
 
+
+
+kubectl describe pod postgres-deployment-97c7d4c47-l9wl5
+kubectl describe pod postgres-deployment-79d45ff857-9dmkt
