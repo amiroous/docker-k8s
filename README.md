@@ -187,12 +187,23 @@ kubectl cluster-info
 `git rev-parse HEAD` Get current Git SHA
 
 
-#### Change Code & Deploy Steps:
+#### Dev Workflow:
 1. Change the Code Base         
 2. Re-Build Effected Images (Using Docker Build or Docker Compose or Make) `docker build -t amiroous/docker-k8s-fibonacci-client ./client`      
 3. Push Updated Images to Docker Hub        
 4. Set the Kubernetes Config by Kubectl Set Command     
 
+
+#### Prod Workflow:
+1. Checkout a Branch
+2. Make Code Changes
+3. Commit Changes
+4. Push teh Commit to Github Branch
+5. Create a PR for Feature Branch to Master Branch
+6. Merge the PR to Master
+7. Check CI (Travis) to Run Tests and Deploy Code
+8. Check Cloud Service -> Kubernetes (Google Cloud) to Check Pod's Health
+9. Check Changes in Prod 
 
 
 ### Configure Local Docker Client (CLI) for Kubernetes on VM
@@ -207,7 +218,3 @@ kubectl cluster-info
 
 ### Helm [#](https://helm.sh/)
 
-
-
-kubectl describe pod postgres-deployment-97c7d4c47-l9wl5
-kubectl describe pod postgres-deployment-79d45ff857-9dmkt
