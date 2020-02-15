@@ -193,6 +193,8 @@ kubectl cluster-info
 3. Push Updated Images to Docker Hub        
 4. Set the Kubernetes Config by Kubectl Set Command     
 
+#### Dev Workflow using [Skaffold](https://skaffold.dev/):
+
 
 #### Prod Workflow:
 1. Checkout a Branch
@@ -217,4 +219,8 @@ kubectl cluster-info
 [1](https://kubernetes.github.io/ingress-nginx/)
 
 ### Helm [#](https://helm.sh/)
+
+
+### Resources:
+- (Multi K8s)[https://github.com/StephenGrider/multi-k8s]
 
